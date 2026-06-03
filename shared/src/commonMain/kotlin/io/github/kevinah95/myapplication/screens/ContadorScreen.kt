@@ -13,12 +13,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
 
 // TODO Paso 1: Observa que `count` se reinicia en cada recomposición.
 //             ¿Por qué ocurre esto? Agrega un comentario explicando el problema.
 @Composable
 fun ContadorScreen() {
-    var count = 0 // Error:  la función se ejecuta desde el principio y el valor vuelve a 0
+    // ✅ Ahora Compose guarda este valor entre recomposiciones
+    //    y sabe cuándo debe recomponer (cuando count cambia)
+    var count by remember { mutableStateOf(0) }
 
     Column(
         modifier = Modifier
