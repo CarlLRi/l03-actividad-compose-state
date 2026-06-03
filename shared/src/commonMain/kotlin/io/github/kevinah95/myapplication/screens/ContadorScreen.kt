@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 //             ¿Por qué ocurre esto? Agrega un comentario explicando el problema.
 @Composable
 fun ContadorScreen() {
-    var count = 0 // No funciona: ???
+    var count = 0 // Error:  la función se ejecuta desde el principio y el valor vuelve a 0
 
     Column(
         modifier = Modifier
