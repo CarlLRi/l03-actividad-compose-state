@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.saveable.rememberSaveable
 
 // TODO Paso 1: Observa que `count` se reinicia en cada recomposición.
 //             ¿Por qué ocurre esto? Agrega un comentario explicando el problema.
@@ -25,6 +26,8 @@ fun ContadorScreen() {
     // ✅ Ahora Compose guarda este valor entre recomposiciones
     //    y sabe cuándo debe recomponer (cuando count cambia)
     var count by remember { mutableStateOf(0) }
+    // ✅ rememberSaveable: sobrevive rotaciones de pantalla
+    var nombre by rememberSaveable { mutableStateOf("") }
 
     Column(
         modifier = Modifier
